@@ -20,9 +20,9 @@ function displayCourseName(name) {
 const displayCourseName2 = (name) => {
     console.log(`[2]course name=${name}`)
 }
-const displayCourseName3 = name => console.log(`[3] course name=${name}`)
+const displayCourseName3 = name => console.log(`[3] course name=${name}`)    //只有一個參數可以省略()
 
-const displayCourseName4 = () => {
+const displayCourseName4 = () => {    //沒有參數需要空()
     console.log(`[4] course name=unknown`)
 }
 const earning = (attendee) => {
