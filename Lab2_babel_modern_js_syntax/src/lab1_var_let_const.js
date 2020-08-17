@@ -11,3 +11,6 @@ console.log(z)
 
 
 //npx babel src\lab1_var_let_const.js
+//npx babel src\lab1_var_let_const.js --out-file out\lab1_var_let_const.js  把babel轉過的版本放在out下
+//node out\lab1_var_let_const.js
+//node src\lab1_var_let_const.js
