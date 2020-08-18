@@ -1,26 +1,25 @@
 import React from 'react';
-//import logo from './logo.svg';
+import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (     /////一個return只能回傳一個div
-    // <div className="App">
-    //   // <h1>hello</h1>
-    //   // <h2>React Programming</h2>
-      
-    // </div>
-    //React.createElement('div',null,null)
-    //React.createElement('div',null,<h1>hello</h1>)
-
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // React.createElement('div', null, React.createElement('h1', null, "Hello World"),
-    //   React.createElement('h2', null, "React Programming"),
-    //   React.createElement('h3', null, '2020-Aug-18'))
-
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    React.createElement('div', {className:'App'}, React.createElement('h1', null, "Hello World"),
-      React.createElement('h2', null, "React Programming"),
-      React.createElement('h3', null, '2020-Aug-18'))
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          中文輸入 Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
