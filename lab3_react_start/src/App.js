@@ -6,8 +6,13 @@ import Dashboard2 from './components/Dashboard2';
 import Person from './components/Person';
 import Pet from './components/Pet';
 import Counter from './components/Counter';
+import Banner from './components/Banner';
 
 class App extends Component  {
+  titleChangeListener = event =>{
+    this.setState({title: event.target.value})
+  }
+
   state = {
     persons:[
       { name:"Mark", age:43 },
@@ -16,7 +21,8 @@ class App extends Component  {
       { name:"Mary", age:28 },
       { name:"abby", age:34 },
       { name:"Kevin", age:50 }
-    ]
+    ],
+    title:"Hello React chtti302"
   }
 
 
@@ -41,6 +47,10 @@ class App extends Component  {
       {
         //commentinside JSX
       }
+
+      <h1>{this.state.title}</h1>
+      <Banner clickCallback={this.titleChangeListener}
+          name={this.state.title} />
       <Dashboard1 />
       <Dashboard2 />
 
