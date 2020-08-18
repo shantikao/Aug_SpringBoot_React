@@ -20,11 +20,11 @@ class App extends Component  {
   }
 
 
-  changeNameHandler = ()=>{
+  changeNameHandler = (leaderName)=>{
     console.log("change button clicked")
     this.setState({
       persons:[
-        { name:"X man", age:43 },
+        { name:leaderName, age:43 },
         { name:"captain america", age:38 },
         { name:"iron man", age:33 },
         { name:"Thor", age:28 },
@@ -43,13 +43,18 @@ class App extends Component  {
       }
       <Dashboard1 />
       <Dashboard2 />
-      <button onClick={this.changeNameHandler}>Change</button>
-      <Person 
-        clickCallback = {this.changeNameHandler}
-        name={this.state.persons[0].name} 
-        age={this.state.persons[0].age} />
-      
-      <Pet name="king" species="cat" />
+
+      {
+        //<button onClick={this.changeNameHandler.bind(this, "One Punch Man")}>Change</button>
+
+      }
+      <button onClick={() => this.changeNameHandler("One Punch Man")}>Change</button>
+
+        <Person
+          clickCallback={this.changeNameHandler.bind(this,"Peter Pan")}
+          name={this.state.persons[0].name}
+          age={this.state.persons[0].age} />
+        <Pet name="king" species="cat" />
       <Person name={this.state.persons[1].name} age={this.state.persons[1].age} />
       <Person name={this.state.persons[2].name} age={this.state.persons[2].age} >Team Leader</Person>
       <Person name="James" age="38" />
