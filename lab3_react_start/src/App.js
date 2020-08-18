@@ -38,10 +38,16 @@ class App extends Component  {
   return (
     <div className="App">
       <Counter step="2" />
+      {
+        //commentinside JSX
+      }
       <Dashboard1 />
       <Dashboard2 />
       <button onClick={this.changeNameHandler}>Change</button>
-      <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
+      <Person 
+        clickCallback = {this.changeNameHandler}
+        name={this.state.persons[0].name} 
+        age={this.state.persons[0].age} />
       
       <Pet name="king" species="cat" />
       <Person name={this.state.persons[1].name} age={this.state.persons[1].age} />
