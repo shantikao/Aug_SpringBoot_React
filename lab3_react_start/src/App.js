@@ -41,51 +41,47 @@ class App extends Component  {
     })
   }
 
+  toggleDisplayHandler =()=>{
+    this.setState({ showPersons: ! this.state.showPersons},()=>{
+      console.log(`current status= ${this.state.showPersons}`)
+    })
+
+  }
   render() {
+    const style = {
+      background: "yellow",
+      font: "inherit",
+      border: "2px solid red",
+      padding: "4px",
+      cursor: 'pointer'
+    }
 
-    const style={
-      background : "yellow",
-      font :"inherit",
-      border : "2px solid red",
-      padding:"4px",
-      cursor:"pointer"
-    }  
+    let persons =null;
+    if (this.state.showPersons === true) {
+      persons = (<div>{
+        this.state.persons.map(person => {
+          return <Person name={person.name} age={person.age} />
+        })
+      }</div>)
+    }
 
-
-  return (
-    <div className="App">
-      <Counter step="2" />
-      {
-        //commentinside JSX
-      }
-
-      <h1>{this.state.title}</h1>
-      <Banner clickCallback={this.titleChangeListener}
+    return (
+      <div className="App">
+        <Counter step="2" />
+        <h1>{this.state.title}</h1>
+        <Banner clickCallback={this.titleChangeListener}
           name={this.state.title} />
-      <Dashboard1 />
-      <Dashboard2 />
-
-      {
-        //<button onClick={this.changeNameHandler.bind(this, "One Punch Man")}>Change</button>
-
-      }
-      <button style ={style} onClick={() => this.changeNameHandler("One Punch Man")}>Change</button>
-
-        <Person
-          clickCallback={this.changeNameHandler.bind(this,"Peter Pan")}
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age} />
-        <Pet name="king" species="cat" />
-      <Person name={this.state.persons[1].name} age={this.state.persons[1].age} />
-      <Person name={this.state.persons[2].name} age={this.state.persons[2].age} >Team Leader</Person>
-      <Person name="James" age="38" />
-      <Person name="Tim" age="33" >Team Leader</Person>
-      <Person name="Mary" age="28" />
-      <Person name="abby" age="34" />
-      <Person name="Kevin" age="50" />
-      <Pet />
-    </div>
-  );
-}
+        <Dashboard1 />
+        <Dashboard2 />
+        <button style={style} onClick={() => this.toggleDisplayHandler()}>
+          show/hide persons</button>
+        {
+          // <button onClick={this.changeNameHandler.bind(this, "One Punch Man")}>Change</button>  
+        }
+        <button style={style} onClick={() => this.changeNameHandler("one Punch Man")}>Change</button>
+        {persons}
+      </div>
+    );
+  }
 }
 export default App;
