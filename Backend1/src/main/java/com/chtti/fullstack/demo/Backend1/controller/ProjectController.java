@@ -20,5 +20,5 @@ public class ProjectController {
     public ResponseEntity<Project> createNewProject(@RequestBody Project project) {
         Project project1 = projectService.saveOrUpdateProject(project);
         return new ResponseEntity<>(project1, HttpStatus.CREATED);
-    }
+     }
 }
