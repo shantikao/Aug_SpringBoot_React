@@ -26,7 +26,7 @@ public class Project {
     private String projectName;
     @NotBlank(message="project identifier is required")
     @Size(min=6,max=16, message="project identifier should betwween 6 to 16 characters")
-    @Column(updateable =false,unique =true)
+    @Column(updatable =false,unique =true)
     private String projectIdentifier;
     @NotBlank(message="project description is required")
     private String description;

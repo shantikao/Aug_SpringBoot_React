@@ -28,7 +28,7 @@ public class ProjectController {
                      BindingResult bindingResult) {
         LOGGER.info("get project from json={}", project);
         if (bindingResult.hasErrors()) {
-            return new ResponseEntity<>("Invalid Project Object",
+            return new ResponseEntity<>(bindingResult.getFieldErrors(),
                     HttpStatus.BAD_REQUEST);
 
         }
