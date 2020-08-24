@@ -1,5 +1,6 @@
 package com.chtti.fullstack.demo.Backend1.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,13 +23,14 @@ public class Project {
     private String projectName;
     private String projectIdentifier;
     private String description;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date startDate;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date endDate;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
-
-
-
     @PrePersist
     protected void onCreate() {
         this.createdAt = new Date();
@@ -37,5 +39,4 @@ public class Project {
     protected void onUpdate(){
         this.updatedAt = new Date();
     }
-
 }
