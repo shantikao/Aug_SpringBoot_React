@@ -1,4 +1,4 @@
-package com.chtti.fullstack.demo.Backend1;
+package com.chtti.fullstack.demo.Backend1.model;
 
 
 import org.junit.jupiter.api.Test;

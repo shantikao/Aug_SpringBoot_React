@@ -1,4 +1,4 @@
-package com.chtti.fullstack.demo.Backend1;
+package com.chtti.fullstack.demo.Backend1.service;
 
 import com.chtti.fullstack.demo.Backend1.model.Project;
 import com.chtti.fullstack.demo.Backend1.service.ProjectService;
