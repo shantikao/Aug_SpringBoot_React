@@ -1,4 +1,5 @@
 package com.chtti.fullstack.demo.Backend1.exceptions;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -19,8 +20,16 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
     @ExceptionHandler
     public final ResponseEntity<Object>
     handleProjectIdIncorrectException(ProjectIdIncorrectException exception, WebRequest request) {
-        ProjectIdIncorrectException response =
-                new ProjectIdIncorrectException(exception.getMessage());
+        ProjectIdIncorrectExceptionResponse response =
+                new ProjectIdIncorrectExceptionResponse(exception.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+    @ExceptionHandler
+    public final ResponseEntity<Object>
+    handleTaskNotFoundException(TaskNotFoundException exception,
+                                WebRequest request) {
+        TaskNotFoundExceptionResponse response =
+                new TaskNotFoundExceptionResponse(exception.getMessage());
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 }

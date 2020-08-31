@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ProjectIdIncorrectExceptionResponse {
-    private String projectIdIncorrect;
+public class TaskNotFoundExceptionResponse {
+    private String task_id;
 }

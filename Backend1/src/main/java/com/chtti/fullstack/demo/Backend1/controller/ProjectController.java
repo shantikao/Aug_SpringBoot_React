@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Map;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/api/project")
@@ -31,6 +32,7 @@ public class ProjectController {
         Project project1 = projectService.saveOrUpdateProject(project);
         return new ResponseEntity<>(project1, HttpStatus.CREATED);
     }
+
     @GetMapping("/all")
     public Iterable<Project> getAllProjects() {
         return projectService.findAllProjects();
@@ -47,4 +49,5 @@ public class ProjectController {
         projectService.deleteProjectByIdentifier(projectId);
         return new ResponseEntity<>(String.format(DELETE_STRING, projectId), HttpStatus.OK);
     }
+
 }
