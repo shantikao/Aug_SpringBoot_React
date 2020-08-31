@@ -1,5 +1,7 @@
 package com.chtti.fullstack.demo.Backend1.service;
 
+import com.chtti.fullstack.demo.Backend1.exceptions.ProjectIdException;
+import com.chtti.fullstack.demo.Backend1.exceptions.ProjectIdIncorrectException;
 import com.chtti.fullstack.demo.Backend1.model.Backlog;
 import com.chtti.fullstack.demo.Backend1.model.ProjectTask;
 import com.chtti.fullstack.demo.Backend1.repository.BacklogRepository;
@@ -33,6 +35,11 @@ public class ProjectTaskService {
     }
     public ProjectTask addProjectTask(String projectIdentifier, ProjectTask projectTask) {
         Backlog backlog = backlogRepository.findByProjectIdentifier(projectIdentifier);
+        if(backlog == null){
+            String message = String.format("Project identifier:%s not found",projectIdentifier);
+            throw new ProjectIdException(message);
+        }
+
         projectTask.setBacklog(backlog);
         //
         Integer backlogSequence = backlog.getPTSequence();
