@@ -35,7 +35,7 @@ public class ProjectController {
 
     @GetMapping("/all")
     public Iterable<Project> getAllProjects() {
-        return projectService.findAllProjects();
+        return projectService.findAllProjects(true);
     }
 
     @GetMapping("/{projectId}")
